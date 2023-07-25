@@ -206,8 +206,8 @@ body._lock {
     position: absolute;
     top: 0;
     left: 0;
-    min-width: 100%;
-    min-height: 100%;
+    width: 100%;
+    
     z-index: 4;
     background-color: #000;
     opacity: 0.7;
@@ -223,11 +223,44 @@ body._lock {
   .task__form._hide {
     display: none;
   }
+  .task__open { 
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    margin-left:-325px;
+    margin-top: -325px;
+    background-color: #2d2d33;
+    border-radius: 10px;
+    opacity: 1.0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #close__task-open {
+    cursor: pointer;
+  }
+  .task__open-background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    z-index: 4;
+    background-color: #000;
+    opacity: 0.7;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .task__open-background._hide {
+    display: none;
+  }
 
 
   .form {
     position: absolute;
-    top: 50%;
+    top: 42%;
     left: 50%;
     margin-left:-325px;
     margin-top: -325px;
@@ -300,15 +333,16 @@ body._lock {
     box-shadow: 0 0 10px 0 #7b60ff inset, 0 0 10px 4px #7b60ff;   
   }
   .form__task-body input:hover {
-  
     box-shadow: 0 0 10px 0 #7b60ff inset, 0 0 10px 4px #7b60ff;
   }
   .form__task-body textarea:hover {
-    
     box-shadow: 0 0 10px 0 #7b60ff inset, 0 0 10px 4px #7b60ff;
   }
 
   .form._hide {
+    display: none;
+  }
+  .task__open._hide {
     display: none;
   }
 

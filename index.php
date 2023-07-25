@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -27,6 +26,7 @@
             <div class="nav__item"><a href="http://kif.pool.ru/">Главная</a></div>
             <div class="nav__item"><a href="">Закрытые задачи</a></div>
             <div class="nav__item"><a href="">Wiki</a></div>
+            <div class="nav__item"><a id="auth_exit" href="">Выйти</a></div>
         </div>
     </header>
     <div class="auth">
@@ -84,7 +84,7 @@
                     <h1>Новая задача</h1>
                     <i class="fa-solid fa-xmark fa-lg fff" id="close"></i>
                 </div>
-                <form action="" method="post" id="form__task">
+                <form action="" method="post" id="form__task-open">
                     <fieldset class="form__task-body">
                         <input type="hidden" name="task_type" id="task_type">
                         <input type="hidden" name="task_owner" id="task_owner">
@@ -100,8 +100,63 @@
                             <option>Ожидание</option>
                             <option>Приостановлено</option>
                             <option>Выполнено</option>
-                          </select>
-                          <button href="#" id="insert_task" type="button" class="form__button-save">Создать</button>
+                        </select>
+                        <label>Исполнитель</label>
+                        <select name="task_executor" id="task_executor">
+                        <?php
+                        include_once "include/view__executor.php"; 
+                        ?>
+                        </select>
+                        <button href="#" id="insert_task" type="button" class="form__button-save">Создать</button>
+                    </fieldset>
+                </form>
+            </div>
+
+            <div class="task__open-background _hide"></div>
+            <div class="task__open _hide">
+                <div class="form__nav">
+                    <h1 id="task__open-id"></h1>
+                    <i class="fa-solid fa-xmark fa-lg fff" id="close__task-open"></i>
+                </div>
+                <form action="" method="post" id="form__task-open">
+                    <fieldset class="form__task-body">
+                        <label id="task__open-owner">Создал </label>
+                        <input type="hidden" id="task__open-val-id" value="">
+                        <label>Исполнитель </label>
+                        <select name="task_executor" id="task_executor-open" value="">
+                            <?php
+                            include "include/view__executor.php"; 
+                            ?>
+                        </select>
+
+                        <label>Тип</label>
+                        <select name="task_type" id="task_type-open">
+                            <option >Долгосрочные</option>
+                            <option>Срочные</option>
+                            <option>Обычные</option>
+                            <option>Закупки</option>
+                        </select>
+
+                        <label>Название</label>
+                        <input type="text" name="task_name" id="task_name-open" required>
+
+                        <label id="task__open-deadline">Крайний срок</label>
+                        <input type="date" name="task_deadline" id="task_deadline-open">
+
+                        <label>Статус</label>
+                        <select name="task_status" id="task_status-open">
+                            <option>В работе</option>
+                            <option>Ожидание</option>
+                            <option>Приостановлено</option>
+                            <option>Выполнено</option>
+                        </select>
+
+
+
+                        <label>Описание</label>
+                        <textarea name="task_body" id="task_body-open" cols="30" rows="10" required></textarea>
+                    
+                        <button href="#" id="update_task" type="button" class="form__button-save">Сохранить</button>
                     </fieldset>
                 </form>
             </div>

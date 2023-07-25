@@ -6,17 +6,25 @@
  
     while ($pole = mysqli_fetch_assoc($res)) {
         echo "
-        <div class='task__item'>
+        <div class='task__item'
+            data-id='".$pole['id_task']."'
+            data-name='".$pole['name']."'
+            data-body='".$pole['body']."'
+            data-date='".$pole['date']."'
+            data-status='".$pole['status']."'
+            data-owner='".$pole['owner']."'
+            data-executor='".$pole['executor']."'
+            data-type='".$pole['type']."'>
         <div class='task__item-nav'>
             <div class='task__item-number'>№ ".$pole['id_task']."</div>
             <div class='task__item-status'>
                 <div class='dropdown'>
                     <button class='dropbtn'>".$pole['status']."</button>
                     <div class='dropdown-content'>
-                    <a class='in_work' value=".$pole['id_task']." data='В работе' href='#'>В работе</a>
-                    <a class='in_wait' value=".$pole['id_task']." data='Ожидание' href='#'>Ожидание</a>
-                    <a class='in_pause' value=".$pole['id_task']." data='Приостановлено' href='#'>Приостановлено</a>
-                    <a class='in_ready' value=".$pole['id_task']." data='Выполнено' href='#'>Выполнено</a>
+                    <a class='status_in' value=".$pole['id_task']." data='В работе' href='#'>В работе</a>
+                    <a class='status_in' value=".$pole['id_task']." data='Ожидание' href='#'>Ожидание</a>
+                    <a class='status_in' value=".$pole['id_task']." data='Приостановлено' href='#'>Приостановлено</a>
+                    <a class='status_in' value=".$pole['id_task']." data='Выполнено' href='#'>Выполнено</a>
                     </div>
                 </div>
             </div>
