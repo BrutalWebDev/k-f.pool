@@ -140,6 +140,10 @@ body._lock {
     flex-direction: row;
     justify-content: space-between;
 }
+.task__item-date-col {
+  display: flex;
+  flex-direction: column;
+}
 
 .nav { 
     display: flex;
@@ -391,6 +395,34 @@ body._lock {
   }
   .form__button-save:active {
     background-color: #7b60ff;
+  }
+
+  .button__selector{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .delete_button {
+    background-color: #ff6060;
+    border-radius: 5px;
+    color: #fff;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .delete_button:hover {
+    box-shadow: 0 0 10px 0 #ff6060 inset, 0 0 10px 4px #ff6060;
+    background-color: transparent;
+    text-shadow: 3px 0px 2px rgb(98, 71, 204);
+  }
+  .delete_button:active {
+    background-color: #ff6060;
   }
   
   .auth { 

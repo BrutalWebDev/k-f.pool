@@ -1,5 +1,5 @@
 <?php
-    require_once 'include/db_connect.php';
+    require 'include/db_connect.php';
 
     $res = mysqli_query($link, "SELECT * FROM task WHERE type LIKE '2'");
 
@@ -10,6 +10,7 @@
             data-id='".$pole['id_task']."'
             data-name='".$pole['name']."'
             data-body='".$pole['body']."'
+            data-locate='".$pole['locate']."'
             data-date='".$pole['date']."'
             data-status='".$pole['status']."'
             data-owner='".$pole['owner']."'
@@ -29,13 +30,16 @@
                 </div>
             </div>
         </div>
-        <div class='task__item-body'>
+        <div class='task__item-body' value=".$pole['id_task'].">
             <h1>".$pole['name']."</h1>
         </div>
         <div class='task__item-date'>
+         <div class='task__item-date-col'>
+            <h1>Создано: ".$pole['today']."</h1>
             <h1>Срок: ".$pole['date']."</h1>
-            <h1>".$pole['owner']."</h1>
+         </div> 
+            <h1>".$pole['executor']."</h1>
         </div> 
-        </div>";}
-      //mysqli_close($link);
+      </div>";}
+      mysqli_close($link);
 ?>

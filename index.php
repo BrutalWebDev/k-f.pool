@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,33 +14,24 @@
     <script src="./js/fontawesome.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
     <title>Карл и Фридрих</title>
 
     <meta name="description" content="Онлайн табло активных задач ИТ отдела Карл и Фридрих">
 </head>
-<body class="_lock">
-
+<?php
+include_once "include/get_ip.php"; 
+?>
+<body id="body">
     <header>
         <div class="nav">
-            <div class="nav__item"><a href="http://kif.pool.ru/">Главная</a></div>
+            <div class="nav__item"><a href="">Главная</a></div>
             <div class="nav__item"><a href="">Закрытые задачи</a></div>
-            <div class="nav__item"><a href="">Wiki</a></div>
-            <div class="nav__item"><a id="auth_exit" href="">Выйти</a></div>
         </div>
     </header>
-    <div class="auth">
-        <div class="auth__nav">
-            <form action="" class="auth__form" method="post" id="form__login">
-                <label>Логин</label>
-                <input type="hidden" id="temp">
-                <input type="text" name="auth_login" id="auth_login">
-                <button class="auth__button" id="auth_open" type="button">Войти</button>
-            </form>
-        </div>
-    </div>
-    
     <main class="wrapper">
         <section class="task">
             <div class="task__list">
@@ -48,7 +40,7 @@
                     <span class="task__btn"><i id="task__btn1" class="fa-regular fa-square-plus fa-lg"></i></span>
                 </div>
                 <?php
-                include_once "include/view__task_1.php"; 
+                include "include/view__task_1.php"; 
                 ?>
             </div>
             <div class="task__list">
@@ -101,10 +93,16 @@
                             <option>Приостановлено</option>
                             <option>Выполнено</option>
                         </select>
+                        <label>Объект</label>
+                        <select name="task_locate" id="task_locate">
+                        <?php
+                        include "include/view__locate.php"; 
+                        ?>
+                        </select>
                         <label>Исполнитель</label>
                         <select name="task_executor" id="task_executor">
                         <?php
-                        include_once "include/view__executor.php"; 
+                        include "include/view__executor.php"; 
                         ?>
                         </select>
                         <button href="#" id="insert_task" type="button" class="form__button-save">Создать</button>
@@ -128,10 +126,15 @@
                             include "include/view__executor.php"; 
                             ?>
                         </select>
-
+                        <label>Объект</label>
+                        <select name="task_locate" id="task_locate-open">
+                            <?php
+                            include "include/view__locate.php"; 
+                            ?>
+                        </select>
                         <label>Тип</label>
                         <select name="task_type" id="task_type-open">
-                            <option >Долгосрочные</option>
+                            <option>Долгосрочные</option>
                             <option>Срочные</option>
                             <option>Обычные</option>
                             <option>Закупки</option>
@@ -141,7 +144,7 @@
                         <input type="text" name="task_name" id="task_name-open" required>
 
                         <label id="task__open-deadline">Крайний срок</label>
-                        <input type="date" name="task_deadline" id="task_deadline-open">
+                        <input type="date" name="task_deadline" id="task_deadline-open" va>
 
                         <label>Статус</label>
                         <select name="task_status" id="task_status-open">
@@ -151,12 +154,13 @@
                             <option>Выполнено</option>
                         </select>
 
-
-
                         <label>Описание</label>
                         <textarea name="task_body" id="task_body-open" cols="30" rows="10" required></textarea>
-                    
-                        <button href="#" id="update_task" type="button" class="form__button-save">Сохранить</button>
+                        <div class="button__selector">
+                            <button href="#" id="update_task" type="button" class="form__button-save">Сохранить</button>
+                            
+                            <button href="#" id="delete_task" type="button" class="delete_button">Удалить</button>
+                        </div>
                     </fieldset>
                 </form>
             </div>
@@ -165,7 +169,10 @@
     <footer>
 
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./js/main.js"></script>
 </body>
+
 </html>
